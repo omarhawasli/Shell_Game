@@ -2,13 +2,17 @@ package MyApp;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.stage.Popup;
+import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,8 +38,7 @@ public class MyApp extends Application {
             instance = this; //singleton zuweisen
         }
 
-
-        primaryStage.setTitle("Snake");
+        primaryStage.setTitle("Shell Game");
         primaryStage.setWidth(1024);
         primaryStage.setHeight(768);
         primaryStage.setResizable(false);
@@ -48,7 +51,7 @@ public class MyApp extends Application {
     }
 
     void setIcon(){
-        InputStream iconStream = getClass().getResourceAsStream("/images/snake.png");
+        InputStream iconStream = getClass().getResourceAsStream("/images/shell.png");
         Image image = new Image(iconStream);
         primaryStage.getIcons().add(image);
 
@@ -86,12 +89,13 @@ public class MyApp extends Application {
         System.exit(0);
     }
 
-    public void showAboutBox(){
+    @FXML
+    public void showAboutBox() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("My App");
         alert.setHeaderText("My App 2023");
-        alert.setContentText("Dies ist eine Demo App");
+        alert.setContentText("This is a Shell Game");
         alert.show();
-    }
 
+    }
 }
