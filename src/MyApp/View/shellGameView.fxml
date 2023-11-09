@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane cache="true" prefHeight="768.0" prefWidth="1064.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyApp.Controller.ShellGameController">
+   <children>
+      <Button fx:id="btn1" layoutX="56.0" layoutY="153.0" mnemonicParsing="false" onAction="#showCards" prefHeight="379.0" prefWidth="233.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn2" layoutX="395.0" layoutY="153.0" mnemonicParsing="false" onAction="#showCards" prefHeight="379.0" prefWidth="233.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn3" layoutX="730.0" layoutY="153.0" mnemonicParsing="false" onAction="#showCards" prefHeight="379.0" prefWidth="233.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="raiseBtn" layoutX="573.0" layoutY="637.0" mnemonicParsing="false" onAction="#onClickBtnRaise" text="+">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="dropBtn" layoutX="527.0" layoutY="637.0" mnemonicParsing="false" onAction="#onClickBtnDrop" text="-">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="417.0" layoutY="41.0" text="Shell Game">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelShuffel" layoutX="148.0" layoutY="51.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="labelCredit" layoutX="815.0" layoutY="55.0" text="Credit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="428.0" layoutY="637.0" mnemonicParsing="false" onAction="#onClickBtnShuffle" prefHeight="39.0" prefWidth="68.0" text="Shuffle" />
+      <Label fx:id="labelGambleAmount" layoutX="468.0" layoutY="583.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
