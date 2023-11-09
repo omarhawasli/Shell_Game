@@ -42,7 +42,6 @@ public class MyApp extends Application {
 
         setIcon();
         initRootLayout();
-//            loadView("WelcomeView");
         loadView("ShellGameView");
 
         primaryStage.show();

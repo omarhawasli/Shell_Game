@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +18,7 @@
             <Font size="36.0" />
          </font>
       </Button>
-      <Button fx:id="btn3" layoutX="730.0" layoutY="153.0" mnemonicParsing="false" onAction="#showCards" prefHeight="379.0" prefWidth="233.0">
+      <Button fx:id="btn3" layoutX="722.0" layoutY="153.0" mnemonicParsing="false" onAction="#showCards" prefHeight="379.0" prefWidth="233.0">
          <font>
             <Font size="36.0" />
          </font>
@@ -53,4 +54,7 @@
          </font>
       </Label>
    </children>
+   <padding>
+      <Insets right="100.0" />
+   </padding>
 </AnchorPane>

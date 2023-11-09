@@ -1,11 +1,16 @@
 package MyApp.Controller;
 
+import MyApp.Utlis.AudioManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
+
 
 import java.util.Random;
 
@@ -42,6 +47,8 @@ public class ShellGameController {
         queen = new Image(getClass().getResourceAsStream("/images/queen.png"));
         jack = new Image(getClass().getResourceAsStream("/images/jack.png"));
         yugi = new Image(getClass().getResourceAsStream("/images/yugi1.png"));
+
+
         showBackCards();
         schuffelCard();
         updateCredit();
@@ -52,18 +59,11 @@ public class ShellGameController {
     public void schuffelCard(){
         Random random = new Random();
         guessCard = random.nextInt(3) + 1 ;
-        labelShuffel.setText("Number is: " + guessCard + ".");
+//        labelShuffel.setText("Number is: " + guessCard + ".");
     }
 
     public void showCards(ActionEvent actionEvent) {
         Button button = (Button) actionEvent.getSource();
-
-
-//        Button[] buttons = {btn1,btn2,btn3};
-//
-//        for(Button b: buttons){
-//            b.setText("");
-//        }
 
 
         if(button.equals(btn1) && guessCard == 1) {
@@ -77,6 +77,10 @@ public class ShellGameController {
             btn3.setStyle("-fx-border-color: red");
 
             win = true;
+
+            AudioManager.playAudio("win","mp3");
+
+
         }else if(button.equals(btn2) && guessCard == 2){
             button.setGraphic(new ImageView(queen));
             button.setStyle("-fx-border-color: green");
@@ -88,6 +92,8 @@ public class ShellGameController {
             btn3.setStyle("-fx-border-color: red");
 
             win = true;
+            AudioManager.playAudio("win","mp3");
+
 
         }else if(button.equals(btn3) && guessCard == 3){
             button.setGraphic(new ImageView(queen));
@@ -101,6 +107,8 @@ public class ShellGameController {
             btn2.setStyle("-fx-border-color: red");
 
             win = true;
+            AudioManager.playAudio("win","mp3");
+
 
         }else{
             button.setGraphic(new ImageView(jack));
@@ -112,6 +120,9 @@ public class ShellGameController {
                 btn2.setStyle("-fx-border-color: red");
                 btn3.setGraphic(new ImageView(jack));
                 btn3.setStyle("-fx-border-color: red");
+
+                AudioManager.playAudio("lose","mp3");
+
             }else if( guessCard == 2 ){
                 btn1.setGraphic(new ImageView(jack));
                 btn1.setStyle("-fx-border-color: red");
@@ -119,6 +130,9 @@ public class ShellGameController {
                 btn2.setStyle("-fx-border-color: green");
                 btn3.setGraphic(new ImageView(jack));
                 btn3.setStyle("-fx-border-color: red");
+
+                AudioManager.playAudio("lose","mp3");
+
             }else if(guessCard == 3){
                 btn1.setGraphic(new ImageView(jack));
                 btn1.setStyle("-fx-border-color: red");
@@ -126,6 +140,8 @@ public class ShellGameController {
                 btn2.setStyle("-fx-border-color: red");
                 btn3.setGraphic(new ImageView(queen));
                 btn3.setStyle("-fx-border-color: green");
+
+                AudioManager.playAudio("lose","mp3");
 
             }
         }
@@ -138,10 +154,11 @@ public class ShellGameController {
 
         }
 
+        disableBtn(true);
         updateCredit();
 
-    }
 
+    }
 
 
 
@@ -153,15 +170,16 @@ public class ShellGameController {
         }else if(credit > gambleAmount && gambleAmount >= 0){
 
 
-                for(Button b: buttons){
-                    b.setDisable(false);
-                }
+            for(Button b: buttons){
+                b.setDisable(false);
+            }
 
             gambleAmount += raise;
         }
 
         labelGambleAmount.setText("Amount: " + gambleAmount);
     }
+
 
     public void onClickBtnDrop() {
         Button[] buttons = {btn1, btn2, btn3};
@@ -211,6 +229,7 @@ public class ShellGameController {
         schuffelCard();
         showBackCards();
         disableCardsCheck();
+        disableBtn(false);
     }
 
 
@@ -220,6 +239,16 @@ public class ShellGameController {
             for(Button b: buttons){
                 b.setDisable(true);
             }
-        }}
+        }
+    }
+
+    public void disableBtn(boolean bool){
+        Button[] buttons = {raiseBtn,dropBtn};
+
+        for(Button b: buttons){
+            b.setDisable(bool);
+
+        }
+    }
 
 }
