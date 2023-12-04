@@ -6,14 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.stage.Popup;
-import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -22,7 +17,6 @@ import java.io.InputStream;
 public class MyApp extends Application {
 
     //SINGLETON
-
     public static MyApp instance;
     Stage primaryStage;
     BorderPane rootLayout;
